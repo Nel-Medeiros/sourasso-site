@@ -4,5 +4,6 @@ import App from '../App'
 test('renders Home page at root route', () => {
   window.location.hash = '#/'
   render(<App />)
-  expect(screen.getByTestId('page-home')).toBeInTheDocument()
+  // Home page renders HeroBanner with 'Sourasso' brand text
+  expect(screen.getByText('Sourasso')).toBeInTheDocument()
 })

@@ -1,0 +1,23 @@
+[
+  { "id": "beb-01", "name": "Água sem Gás", "description": "500ml.", "price": 3.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-02", "name": "Água com Gás", "description": "500ml.", "price": 3.50, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-03", "name": "Coca Cola", "description": "2 litros.", "price": 15.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-04", "name": "Coca Cola Zero", "description": "2 litros.", "price": 16.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-05", "name": "Guaraná Antártica", "description": "2 litros.", "price": 13.50, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-06", "name": "Fanta Laranja", "description": "2 litros.", "price": 13.50, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-07", "name": "Sprite", "description": "2 litros.", "price": 13.50, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-08", "name": "Cini Abacaxi", "description": "2 litros.", "price": 10.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-09", "name": "Cini Framboesa", "description": "2 litros.", "price": 10.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-10", "name": "Suco de Abacaxi", "description": "785ml — jarra.", "price": 15.00, "prepTime": 5, "observations": "", "isActive": true },
+  { "id": "beb-11", "name": "Suco de Abacaxi com Hortelã", "description": "785ml — jarra.", "price": 17.00, "prepTime": 5, "observations": "", "isActive": true },
+  { "id": "beb-12", "name": "Suco de Laranja", "description": "785ml — jarra.", "price": 15.00, "prepTime": 5, "observations": "", "isActive": true },
+  { "id": "beb-13", "name": "Suco de Abacaxi 500ml", "description": "500ml — garrafa (delivery).", "price": 10.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-14", "name": "Suco de Abacaxi 1L", "description": "1 litro — garrafa (delivery).", "price": 20.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-15", "name": "Suco de Abacaxi com Hortelã 500ml", "description": "500ml — garrafa (delivery).", "price": 12.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-16", "name": "Suco de Abacaxi com Hortelã 1L", "description": "1 litro — garrafa (delivery).", "price": 24.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-17", "name": "Suco de Laranja 500ml", "description": "500ml — garrafa (delivery).", "price": 10.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-18", "name": "Suco de Laranja 1L", "description": "1 litro — garrafa (delivery).", "price": 20.00, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-alc-01", "name": "Corona Long Neck", "description": "330ml.", "price": 9.90, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-alc-02", "name": "Heineken Long Neck", "description": "330ml.", "price": 8.90, "prepTime": 0, "observations": "", "isActive": true },
+  { "id": "beb-alc-03", "name": "Heineken Zero Long Neck", "description": "330ml.", "price": 8.90, "prepTime": 0, "observations": "", "isActive": true }
+]

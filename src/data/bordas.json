@@ -1,0 +1,11 @@
+[
+  { "id": "borda-01", "name": "Cheddar", "price": 15.00 },
+  { "id": "borda-02", "name": "Prestígio", "price": 15.00 },
+  { "id": "borda-03", "name": "Dois Amores", "price": 15.00 },
+  { "id": "borda-04", "name": "Chocolate Branco", "price": 15.00 },
+  { "id": "borda-05", "name": "Chocolate Preto", "price": 15.00 },
+  { "id": "borda-06", "name": "Chocolate Preto com Amendoim", "price": 15.00 },
+  { "id": "borda-07", "name": "Requeijão Cremoso", "price": 17.00 },
+  { "id": "borda-08", "name": "Bacon com Catupiry", "price": 17.00 },
+  { "id": "borda-09", "name": "Creme de Avelã", "price": 17.00 }
+]

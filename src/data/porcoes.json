@@ -1,0 +1,13 @@
+[
+  { "id": "porcao-01", "name": "Batata Frita", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 27.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-02", "name": "Batata Frita com Bacon", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 30.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-03", "name": "Batata Frita com Muçarela e Bacon", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 33.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-04", "name": "Batata Frita com Cheddar e Bacon", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 36.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-05", "name": "Calabresa", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 26.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-06", "name": "Calabresa com Cebola", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 28.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-07", "name": "Frango à Passarinho", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 30.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "porcao-08", "name": "Mandioca Frita", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 26.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-09", "name": "Mandioca Frita com Bacon", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 30.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-10", "name": "Polenta Frita", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 26.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "porcao-11", "name": "Polenta Frita com Bacon", "description": "500g · 2 a 3 pessoas · com cheiro verde.", "price": 30.00, "prepTime": 15, "observations": "", "isActive": true }
+]

@@ -1,0 +1,14 @@
+[
+  { "id": "lanche-01", "name": "Calabresa Burguer", "description": "Pão, hambúrguer artesanal, calabresa, muçarela, alface, tomate em rodelas e maionese.", "price": 19.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "lanche-02", "name": "Ovo Burguer", "description": "Pão, hambúrguer artesanal, ovo, muçarela, presunto, alface, tomate em rodelas e maionese.", "price": 19.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "lanche-03", "name": "Frango Burguer", "description": "Pão, filé de frango, muçarela, alface, tomate em rodelas e maionese.", "price": 30.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "lanche-04", "name": "Cheddar Burguer", "description": "Pão, hambúrguer artesanal, cheddar, alface, tomate em rodelas e maionese.", "price": 24.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "lanche-05", "name": "Kids Burguer", "description": "Pão, hambúrguer artesanal, muçarela e maionese.", "price": 15.00, "prepTime": 15, "observations": "", "isActive": true },
+  { "id": "lanche-06", "name": "Tradicional Burguer", "description": "Pão, hambúrguer artesanal, muçarela, presunto, alface, tomate em rodelas e maionese.", "price": 19.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "lanche-07", "name": "Bacon Burguer", "description": "Pão, hambúrguer artesanal, muçarela, bacon em fatia, alface, picles e maionese.", "price": 27.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "lanche-08", "name": "Cheddar Bacon Burguer", "description": "Pão, hambúrguer artesanal, cheddar, bacon fatia, alface, picles e maionese.", "price": 30.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "lanche-09", "name": "Roxa Burguer", "description": "Pão, hambúrguer artesanal, muçarela, picles, cebola roxa, alface, tomate e maionese.", "price": 25.00, "prepTime": 20, "observations": "", "isActive": true },
+  { "id": "lanche-10", "name": "Doritos Burguer", "description": "Pão, hambúrguer artesanal, cheddar, doritos, bacon em fatia, alface e maionese.", "price": 37.00, "prepTime": 25, "observations": "", "isActive": true },
+  { "id": "lanche-11", "name": "Duplo Burguer", "description": "Pão, 2 hambúrgueres artesanais, cheddar, picles, alface, tomate em rodelas e maionese.", "price": 37.00, "prepTime": 25, "observations": "", "isActive": true },
+  { "id": "lanche-12", "name": "Sourasso Burguer", "description": "Pão, hambúrguer artesanal, ovo, muçarela, presunto, bacon em fatia, frango desfiado, alface, tomate em rodelas, cebola e maionese.", "price": 40.00, "prepTime": 25, "observations": "", "isActive": true }
+]

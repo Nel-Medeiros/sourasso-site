@@ -1,0 +1,92 @@
+[
+  {
+    "category": "Tradicionais",
+    "items": [
+      { "id": "trad-01", "name": "Muçarela", "description": "Molho de tomate, muçarela, molho de tomate e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-02", "name": "Alho e Óleo", "description": "Molho de tomate, muçarela, molho de alho, óleo, tomate e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-03", "name": "Brasileira", "description": "Molho de tomate, muçarela, presunto, catupiry, azeitona e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-04", "name": "Carijó", "description": "Molho de tomate, muçarela, frango, milho, ovos e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-05", "name": "Calabresa", "description": "Molho de tomate, muçarela, calabresa e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-06", "name": "Calabresa com Cebola", "description": "Molho de tomate, muçarela, calabresa, cebola e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-07", "name": "Calabresa Alho e Óleo", "description": "Molho de tomate, muçarela, calabresa, alho frito, óleo e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-08", "name": "Crocante", "description": "Molho de tomate, muçarela, bacon, batata palha e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-09", "name": "Frango com Catupiry", "description": "Molho de tomate, muçarela, frango, catupiry e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-10", "name": "Milho com Bacon", "description": "Molho de tomate, muçarela, bacon, milho e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-11", "name": "Napolitano", "description": "Molho de tomate, muçarela, parmesão, tomate e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-12", "name": "Palmito", "description": "Molho de tomate, muçarela, palmito, catupiry, azeitona e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-13", "name": "Portuguesa", "description": "Molho de tomate, muçarela, presunto, cebola, ovos, pimentão, azeitona e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-14", "name": "Quatro Queijos", "description": "Molho de tomate, muçarela, parmesão, provolone, catupiry e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-15", "name": "Frango com Cheddar", "description": "Molho de tomate, muçarela, frango, cheddar e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-16", "name": "Catubresa", "description": "Molho de tomate, muçarela, calabresa, catupiry e orégano.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "trad-17", "name": "Margherita", "description": "Molho de tomate, muçarela, parmesão, tomate e manjericão fresco.", "prepTime": 30, "observations": "", "isActive": true }
+    ]
+  },
+  {
+    "category": "Especiais",
+    "items": [
+      { "id": "esp-01", "name": "Batata Frita", "description": "Molho de tomate, muçarela, batata frita, bacon e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-02", "name": "Batata Frita com Cheddar", "description": "Molho de tomate, muçarela, batata frita, bacon, cheddar e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-03", "name": "Bolonhesa", "description": "Molho de tomate, muçarela, carne à bolonhesa, parmesão e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-04", "name": "Carioca", "description": "Molho de tomate, muçarela, champignon, palmito, azeitona e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-05", "name": "Calabresa Especial", "description": "Molho de tomate, muçarela, calabresa, bacon, ovos e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-06", "name": "Canadense", "description": "Molho de tomate, muçarela, parmesão, lombo, champignon e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-07", "name": "Cinco Queijos", "description": "Molho de tomate, muçarela, parmesão, provolone, catupiry, cheddar e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-08", "name": "Lombo à Califórnia", "description": "Molho de tomate, muçarela, lombo, abacaxi e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-09", "name": "Lombo com Catupiry", "description": "Molho de tomate, muçarela, lombo, catupiry e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-10", "name": "Lombo com Cheddar", "description": "Molho de tomate, muçarela, lombo, cheddar e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-11", "name": "Mexicana", "description": "Molho de tomate, muçarela, calabresa, pimentão, cebola, pimenta calabresa e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-12", "name": "Mandioca com Bacon", "description": "Molho de tomate, muçarela, mandioca frita, bacon e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-13", "name": "Margherita Especial", "description": "Molho de tomate, muçarela, tomate cereja, queijo polenguinho, manjericão fresco e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-14", "name": "Paulista", "description": "Molho de tomate, muçarela, milho, ervilha, palmito, bacon e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-15", "name": "Strogonoff de Carne", "description": "Molho de tomate, muçarela, strogonoff de carne, batata palha e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-16", "name": "Strogonoff de Frango", "description": "Molho de tomate, muçarela, strogonoff de frango, batata palha e orégano.", "prepTime": 35, "observations": "", "isActive": true },
+      { "id": "esp-17", "name": "Sourasso", "description": "Molho de tomate, muçarela, parmesão, palmito, bacon, champignon, calabresa, milho, cebola e orégano.", "prepTime": 35, "observations": "", "isActive": true }
+    ]
+  },
+  {
+    "category": "Premium",
+    "items": [
+      { "id": "prem-01", "name": "Costela com Polenguinho", "description": "Molho de tomate, muçarela, costela desfiada, queijo polenguinho e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-02", "name": "Costela Cremosa", "description": "Molho de tomate, muçarela, costela desfiada, requeijão cremoso, azeitona preta e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-03", "name": "Costela com Molho Barbecue", "description": "Molho de tomate, muçarela, costela desfiada, molho barbecue e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-04", "name": "Doritos", "description": "Molho de tomate, muçarela, carne moída, bacon, cheddar, doritos e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-05", "name": "Doritos com Mignon", "description": "Molho de tomate, muçarela, tiras de filé mignon, cheddar, doritos e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-06", "name": "Filé Mignon Cremoso", "description": "Molho de tomate, muçarela, tiras de filé mignon, requeijão cremoso e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-07", "name": "Filé Mignon Acebolado", "description": "Molho de tomate, muçarela, tiras de filé mignon, cebola roxa e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-08", "name": "Frango com Requeijão Cremoso", "description": "Molho de tomate, muçarela, frango, requeijão cremoso e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-09", "name": "Alcatra Acebolada", "description": "Molho de tomate, muçarela, parmesão, alcatra, cebola roxa e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-10", "name": "Pepperoni", "description": "Molho de tomate, muçarela, pepperoni, azeitona preta e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-11", "name": "Pepperoni com Cream Cheese", "description": "Molho de tomate, muçarela, pepperoni, cream cheese e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-12", "name": "Bacon com Alho-Poró", "description": "Molho de tomate, muçarela, bacon em cubos, alho-poró, cream cheese e orégano.", "prepTime": 40, "observations": "", "isActive": true },
+      { "id": "prem-13", "name": "Alho-Poró com Cream Cheese", "description": "Molho de tomate, muçarela, alho-poró, cream cheese e orégano.", "prepTime": 40, "observations": "", "isActive": true }
+    ]
+  },
+  {
+    "category": "Doces",
+    "items": [
+      { "id": "doce-01", "name": "Prestígio", "description": "Muçarela, chocolate preto e coco ralado.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-02", "name": "Abacaxi", "description": "Muçarela, abacaxi e chocolate branco.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-03", "name": "Banana Nevada", "description": "Muçarela, banana e chocolate branco.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-04", "name": "Banoffee", "description": "Muçarela, banana, canela e doce de leite.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-05", "name": "Brigadeiro", "description": "Muçarela, chocolate preto e granulado.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-06", "name": "Confete", "description": "Muçarela, chocolate preto e confete.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-07", "name": "Doce Pecado", "description": "Muçarela, chocolate preto, morango e leite condensado.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-08", "name": "Dois Amores", "description": "Muçarela, chocolate preto e chocolate branco.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-09", "name": "Ouro Branco", "description": "Muçarela, chocolate branco e ouro branco.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-10", "name": "Sonho de Valsa", "description": "Muçarela, chocolate preto, morango e sonho de valsa.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-11", "name": "Surpresa de Uva", "description": "Muçarela, chocolate preto, chocolate branco e uvas verdes sem sementes.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-12", "name": "Bombom de Uva", "description": "Muçarela, chocolate preto, uvas verdes sem sementes e leite ninho.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-13", "name": "Sensação", "description": "Muçarela, chocolate preto, morango e granulado.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-14", "name": "Morango com Suspiro", "description": "Muçarela, morango, suspiro e creme de avelã.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-15", "name": "Sourasso Doce", "description": "Muçarela, creme de avelã, morango e banana.", "prepTime": 30, "observations": "", "isActive": true }
+    ]
+  },
+  {
+    "category": "Doces Especiais",
+    "items": [
+      { "id": "doce-esp-01", "name": "Rafaello", "description": "Muçarela, chocolate branco, coco ralado, morango e rafaello.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-esp-02", "name": "Kinder Bueno", "description": "Muçarela, chocolate branco, chocolate preto, kinder bueno e morango.", "prepTime": 30, "observations": "", "isActive": true },
+      { "id": "doce-esp-03", "name": "Ferrero Rocher", "description": "Muçarela, creme de avelã, morango, amendoim e ferrero rocher.", "prepTime": 30, "observations": "", "isActive": true }
+    ]
+  }
+]

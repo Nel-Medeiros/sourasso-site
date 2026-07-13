@@ -31,7 +31,9 @@ describe('pizza mode', () => {
 
   test('shows starting price for 6 fatias (R$39,90)', () => {
     render(<ProductSheet product={PIZZA} pizzaCategory="Tradicionais" onClose={() => {}} onAdd={() => {}} />)
-    expect(screen.getByText(/39,90/)).toBeInTheDocument()
+    // Price appears on the 6-fatias size button AND the add button — confirm it's in the document at least once
+    const matches = screen.getAllByText(/39,90/)
+    expect(matches.length).toBeGreaterThan(0)
   })
 
   test('calls onAdd with pizza payload when button clicked', () => {

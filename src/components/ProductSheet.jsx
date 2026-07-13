@@ -149,12 +149,9 @@ export default function ProductSheet({ product, pizzaCategory, onClose, onAdd })
 
           <button
             onClick={handleAdd}
-            aria-label={`Adicionar ao Carrinho — R$${total}`}
             className="w-full bg-terracotta text-cream font-bold py-3.5 rounded-xl text-sm"
           >
-            {isPizza
-              ? 'Adicionar ao Carrinho'
-              : `Adicionar ao Carrinho — R$${total}`}
+            Adicionar ao Carrinho — R${total}
           </button>
         </div>
       </div>

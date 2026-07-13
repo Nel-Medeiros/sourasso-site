@@ -45,10 +45,10 @@ export default function ProductSheet({ product, pizzaCategory, onClose, onAdd })
     <>
       <div
         data-testid="sheet-backdrop"
-        className="fixed inset-0 bg-black/40 z-40"
+        className="fixed inset-0 bg-black/40 z-[55]"
         onClick={onClose}
       />
-      <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl z-50 max-h-[85vh] overflow-y-auto">
+      <div className="fixed bottom-0 left-0 right-0 bg-white rounded-t-2xl z-[60] max-h-[85vh] overflow-y-auto">
         <div className="flex justify-center pt-3 pb-1">
           <div className="w-10 h-1 bg-gray-200 rounded-full" />
         </div>

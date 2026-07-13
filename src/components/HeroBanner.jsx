@@ -7,13 +7,7 @@ export default function HeroBanner() {
       <h1 className="font-brand text-5xl italic text-white mb-1 drop-shadow" data-testid="brand-heading">
         Sourasso
       </h1>
-      <p className="text-cream text-sm opacity-90 mb-5">Pizzaria Artesanal</p>
-      <a
-        href="#menu"
-        className="inline-block bg-cream text-terracotta font-bold text-sm px-6 py-2.5 rounded-lg shadow"
-      >
-        Ver Cardápio
-      </a>
+      <p className="text-cream text-sm opacity-90 mb-2">Pizzaria Artesanal</p>
       <div className="absolute -top-10 -right-10 w-40 h-40 bg-white opacity-10 rounded-full pointer-events-none" />
       <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white opacity-10 rounded-full pointer-events-none" />
     </div>

@@ -12,7 +12,7 @@ export default function BottomNav() {
     }`
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-cream flex justify-around items-center h-16 z-50 shadow-[0_-2px_8px_rgba(0,0,0,0.06)]">
+    <nav aria-label="Navegação principal" className="fixed bottom-0 left-0 right-0 bg-white border-t border-cream flex justify-around items-center h-16 z-50 shadow-[0_-2px_8px_rgba(0,0,0,0.06)]">
       <NavLink to="/" end className={link}>
         <span className="text-xl">🏠</span>
         Início

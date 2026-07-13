@@ -1,22 +1,26 @@
+import { Link } from 'react-router-dom'
 import useCartStore from '../store/cartStore'
 import CartItem from '../components/CartItem'
-import { Link } from 'react-router-dom'
+import CheckoutForm from '../components/CheckoutForm'
 
 export default function Cart() {
-  const { items, updateQty, removeItem } = useCartStore()
-  const subtotal = items
+  const { items, removeItem, updateQty } = useCartStore()
+  const total = items
     .reduce((sum, i) => sum + i.unitPrice * i.quantity, 0)
     .toFixed(2)
     .replace('.', ',')
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-cream flex flex-col items-center justify-center gap-4 pb-20">
+      <div className="bg-cream min-h-screen flex flex-col items-center justify-center gap-4 pb-20 px-8 text-center">
         <span className="text-6xl">🛒</span>
-        <p className="text-dark-brown font-semibold text-lg">Carrinho vazio</p>
+        <h2 className="font-brand text-2xl italic text-dark-brown">Carrinho vazio</h2>
+        <p className="text-gray-400 text-sm">
+          Adicione itens do cardápio para fazer seu pedido.
+        </p>
         <Link
           to="/"
-          className="bg-terracotta text-cream font-bold px-6 py-2.5 rounded-xl text-sm"
+          className="bg-terracotta text-cream font-bold px-6 py-3 rounded-xl text-sm"
         >
           Ver Cardápio
         </Link>
@@ -25,10 +29,10 @@ export default function Cart() {
   }
 
   return (
-    <div className="min-h-screen bg-cream pb-20">
-      <div className="p-4 pt-6">
-        <h1 className="font-brand text-2xl italic text-dark-brown mb-4">Meu Pedido</h1>
-        <div className="flex flex-col gap-3 mb-6">
+    <div className="bg-cream min-h-screen pb-20">
+      <div className="p-4">
+        <h1 className="font-brand text-2xl italic text-dark-brown mb-4">Seu Pedido</h1>
+        <div className="flex flex-col gap-3 mb-4">
           {items.map((item) => (
             <CartItem
               key={item.cartId}
@@ -38,11 +42,12 @@ export default function Cart() {
             />
           ))}
         </div>
-        <div className="bg-white rounded-xl p-4 border border-cream flex justify-between items-center mb-4">
-          <span className="text-dark-brown font-semibold">Subtotal</span>
-          <span className="text-terracotta font-bold text-lg">R${subtotal}</span>
+        <div className="flex justify-between items-center bg-white rounded-xl p-4 border border-cream">
+          <span className="font-bold text-dark-brown">Total</span>
+          <span className="font-bold text-terracotta text-xl">R${total}</span>
         </div>
       </div>
+      <CheckoutForm items={items} />
     </div>
   )
 }

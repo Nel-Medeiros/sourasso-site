@@ -4,7 +4,7 @@ export default function HeroBanner() {
       <p className="text-cream text-xs tracking-widest uppercase mb-1 opacity-80">
         Bem-vindo à
       </p>
-      <h1 className="font-brand text-5xl italic text-white mb-1 drop-shadow">
+      <h1 className="font-brand text-5xl italic text-white mb-1 drop-shadow" data-testid="brand-heading">
         Sourasso
       </h1>
       <p className="text-cream text-sm opacity-90 mb-5">Pizzaria Artesanal</p>

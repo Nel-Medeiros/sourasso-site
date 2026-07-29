@@ -7,11 +7,13 @@ import BottomNav from './components/BottomNav'
 export default function App() {
   return (
     <HashRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+      <div className="max-w-7xl mx-auto">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+      </div>
       <BottomNav />
     </HashRouter>
   )

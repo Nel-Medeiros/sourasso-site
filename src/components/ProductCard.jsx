@@ -5,6 +5,7 @@ export default function ProductCard({
   displayPrice,
   emoji = '🍽️',
   onSelect,
+  tallImage = false,
 }) {
   const pcImage = getPcViewImage(product.pcImage)
   const mobileImage = getMobileViewImage(product.mobileImage)
@@ -14,7 +15,7 @@ export default function ProductCard({
       className="bg-white rounded-xl border border-cream p-3 cursor-pointer active:scale-95 transition-transform"
       onClick={() => onSelect(product)}
     >
-      <div className="w-full h-24 rounded-lg mb-2 overflow-hidden">
+      <div className={`w-full h-24 ${tallImage ? 'md:h-72' : ''} rounded-lg mb-2 overflow-hidden`}>
         {mobileImage ? (
           <img src={mobileImage} alt={product.name} className="md:hidden w-full h-full object-cover" />
         ) : (

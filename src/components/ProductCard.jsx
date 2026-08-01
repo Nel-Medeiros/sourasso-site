@@ -1,4 +1,4 @@
-import { getPcViewImage } from '../utils/pizzaImages'
+import { getPcViewImage, getMobileViewImage } from '../utils/pizzaImages'
 
 export default function ProductCard({
   product,
@@ -7,6 +7,7 @@ export default function ProductCard({
   onSelect,
 }) {
   const pcImage = getPcViewImage(product.pcImage)
+  const mobileImage = getMobileViewImage(product.mobileImage)
 
   return (
     <div
@@ -14,19 +15,17 @@ export default function ProductCard({
       onClick={() => onSelect(product)}
     >
       <div className="w-full h-24 rounded-lg mb-2 overflow-hidden">
-        {pcImage ? (
-          <>
-            <img
-              src={pcImage}
-              alt={product.name}
-              className="hidden md:block w-full h-full object-cover"
-            />
-            <div className="md:hidden w-full h-full bg-cream flex items-center justify-center">
-              <span className="text-4xl">{emoji}</span>
-            </div>
-          </>
+        {mobileImage ? (
+          <img src={mobileImage} alt={product.name} className="md:hidden w-full h-full object-cover" />
         ) : (
-          <div className="w-full h-full bg-cream flex items-center justify-center">
+          <div className="md:hidden w-full h-full bg-cream flex items-center justify-center">
+            <span className="text-4xl">{emoji}</span>
+          </div>
+        )}
+        {pcImage ? (
+          <img src={pcImage} alt={product.name} className="hidden md:block w-full h-full object-cover" />
+        ) : (
+          <div className="hidden md:flex w-full h-full bg-cream items-center justify-center">
             <span className="text-4xl">{emoji}</span>
           </div>
         )}

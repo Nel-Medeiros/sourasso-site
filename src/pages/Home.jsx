@@ -72,6 +72,7 @@ export default function Home() {
               displayPrice={getDisplayPrice(product)}
               emoji={CATEGORY_EMOJI[activeCategory]}
               onSelect={handleSelect}
+              tallImage={activeCategory === 'Bebidas'}
             />
           ))}
         </div>

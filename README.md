@@ -1,16 +1,67 @@
-# React + Vite
+# Sourasso — Site de Cardápio e Pedidos
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Site de cardápio digital e pedidos via WhatsApp para a pizzaria **Sourasso**.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Cardápio completo com categorias: Pizzas, Lanches, Porções e Bebidas
+- Pizzas organizadas por subcategorias: Tradicionais, Especiais, Premium, Doces e Doces Especiais
+- Imagens responsivas nos cards: versão mobile e versão desktop
+- Seleção de tamanho, borda e observações por produto
+- Carrinho com gerenciamento de quantidades
+- Finalização de pedido via WhatsApp com resumo formatado
+- Layout centralizado com largura máxima de 1280px
 
-## React Compiler
+## Tecnologias
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [React 19](https://react.dev)
+- [Vite 8](https://vite.dev)
+- [Tailwind CSS 3](https://tailwindcss.com)
+- [React Router 7](https://reactrouter.com)
+- [Zustand 5](https://zustand-demo.pmnd.rs) — gerenciamento de estado do carrinho
+- [Vitest](https://vitest.dev) + [Testing Library](https://testing-library.com) — testes
 
-## Expanding the Oxlint configuration
+## Estrutura do projeto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```
+src/
+├── assets/          # Imagens dos produtos (mobile-view e pc-view)
+├── components/      # Componentes reutilizáveis (ProductCard, CartItem, etc.)
+├── data/            # JSON com dados de produtos e preços
+├── pages/           # Páginas (Home, Cart, Contact)
+├── store/           # Estado global com Zustand
+└── utils/           # Utilitários (pizzaImages, whatsapp)
+public/
+└── favicon.png      # Ícone do site
+```
+
+## Dados dos produtos
+
+Cada categoria tem seu próprio arquivo JSON em `src/data/`:
+
+| Arquivo | Categoria |
+|---|---|
+| `pizzas.json` | Pizzas (agrupadas por subcategoria) |
+| `lanches.json` | Lanches |
+| `porcoes.json` | Porções |
+| `bebidas.json` | Bebidas |
+
+Produtos com imagens têm os campos `pcImage` e/ou `mobileImage` com o nome do arquivo (sem extensão) correspondente em `src/assets/`. Convenção de nomenclatura: `<sabor>-pc-view.png` e `<sabor>-mobile-view.png`.
+
+## Imagens
+
+As imagens são carregadas via `import.meta.glob` em `src/utils/pizzaImages.js`. Para adicionar imagens a um produto:
+
+1. Adicione o arquivo em `src/assets/` seguindo a convenção de nomenclatura
+2. Adicione o campo `pcImage` e/ou `mobileImage` ao item no JSON correspondente
+
+## Comandos
+
+```bash
+npm install       # Instalar dependências
+npm run dev       # Servidor de desenvolvimento (http://localhost:5173)
+npm run build     # Build de produção
+npm run preview   # Preview do build de produção
+npm run test      # Rodar testes
+npm run lint      # Lint com oxlint
+```

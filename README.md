@@ -1,5 +1,12 @@
 # Sourasso — Site de Cardápio e Pedidos
 
+## Screenshots
+
+| | Desktop | Mobile |
+|---|---|---|
+| **Pizzas** | ![Pizzas Desktop](docs/screenshots/home-pizzas-desktop.png) | ![Pizzas Mobile](docs/screenshots/home-pizzas-mobile.png) |
+| **Bebidas** | ![Bebidas Desktop](docs/screenshots/home-bebidas-desktop.png) | ![Bebidas Mobile](docs/screenshots/home-bebidas-mobile.png) |
+
 Site de cardápio digital e pedidos via WhatsApp para a pizzaria **Sourasso**.
 
 ## Funcionalidades

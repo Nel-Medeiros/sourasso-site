@@ -13,6 +13,7 @@ export default function ProductCard({
   return (
     <div
       className="bg-white rounded-xl border border-cream p-3 cursor-pointer active:scale-95 transition-transform"
+      data-testid="product-card"
       onClick={() => onSelect(product)}
     >
       <div className={`w-full h-24 ${tallImage ? 'md:h-72' : ''} rounded-lg mb-2 overflow-hidden`}>

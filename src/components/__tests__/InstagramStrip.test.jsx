@@ -15,4 +15,9 @@ describe('InstagramStrip', () => {
     render(<InstagramStrip />)
     expect(screen.getByText('@sourassopizzaria')).toBeInTheDocument()
   })
+
+  it('hides the icon from screen readers', () => {
+    render(<InstagramStrip />)
+    expect(document.querySelector('svg')).toHaveAttribute('aria-hidden', 'true')
+  })
 })

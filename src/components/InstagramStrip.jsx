@@ -4,6 +4,7 @@ export default function InstagramStrip() {
       href="https://www.instagram.com/sourassopizzaria"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Visitar o Instagram @sourassopizzaria (abre em nova aba)"
       className="flex items-center justify-center gap-2 py-2.5 bg-terracotta text-cream text-sm font-medium hover:opacity-90 transition-opacity"
     >
       <svg
@@ -19,7 +20,7 @@ export default function InstagramStrip() {
       >
         <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
         <circle cx="12" cy="12" r="4" />
-        <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+        <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none" />
       </svg>
       @sourassopizzaria
     </a>

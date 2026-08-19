@@ -3,9 +3,6 @@ import logoWhite from '../assets/Sourasso_Logo_White_Resized.png'
 export default function HeroBanner() {
   return (
     <div className="bg-gradient-to-br from-terracotta to-rose-gold p-8 text-center relative overflow-hidden">
-      <p className="text-cream text-xs tracking-widest uppercase mb-3 opacity-80">
-        Bem-vindo à
-      </p>
       <img
         src={logoWhite}
         alt="Sourasso"

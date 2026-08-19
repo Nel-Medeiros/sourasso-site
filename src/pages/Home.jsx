@@ -6,14 +6,12 @@ import ProductCard from '../components/ProductCard'
 import ProductSheet from '../components/ProductSheet'
 import useCartStore from '../store/cartStore'
 import pizzasData from '../data/pizzas.json'
-import lanchesData from '../data/lanches.json'
 import porcoesData from '../data/porcoes.json'
 import bebidasData from '../data/bebidas.json'
 import { PIZZA_PRICES } from '../data/prices'
 
 const CATEGORY_EMOJI = {
   Pizzas: '🍕',
-  Lanches: '🍔',
   Porções: '🍟',
   Bebidas: '🥤',
 }
@@ -30,8 +28,6 @@ export default function Home() {
         return (
           pizzasData.find((g) => g.category === activePizzaSub)?.items ?? []
         ).filter((i) => i.isActive)
-      case 'Lanches':
-        return lanchesData.filter((i) => i.isActive)
       case 'Porções':
         return porcoesData.filter((i) => i.isActive)
       case 'Bebidas':

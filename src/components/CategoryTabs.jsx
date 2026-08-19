@@ -1,4 +1,4 @@
-const CATEGORIES = ['Pizzas', 'Lanches', 'Porções', 'Bebidas']
+const CATEGORIES = ['Pizzas', 'Porções', 'Bebidas']
 
 export default function CategoryTabs({ active, onChange }) {
   return (

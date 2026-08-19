@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import HeroBanner from '../components/HeroBanner'
+import InstagramStrip from '../components/InstagramStrip'
 import CategoryTabs from '../components/CategoryTabs'
 import PizzaSubTabs from '../components/PizzaSubTabs'
 import ProductCard from '../components/ProductCard'
@@ -56,6 +57,7 @@ export default function Home() {
     <div className="bg-cream min-h-screen pb-20">
       <HeroBanner />
       <div id="menu">
+        <InstagramStrip />
         <CategoryTabs active={activeCategory} onChange={setActiveCategory} />
         {activeCategory === 'Pizzas' && (
           <PizzaSubTabs active={activePizzaSub} onChange={setActivePizzaSub} />

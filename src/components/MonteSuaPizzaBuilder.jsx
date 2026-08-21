@@ -76,6 +76,10 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
       unitPrice,
       quantity: 1,
     })
+    setSelectedSize(BUILDER_SIZES[0])
+    setSelectedBorda(null)
+    setSelectedFlavors([])
+    setObservations('')
   }
 
   return (

@@ -1,15 +1,13 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import MonteSuaPizzaBuilder from '../MonteSuaPizzaBuilder'
 
 describe('MonteSuaPizzaBuilder', () => {
   it('renders all five size buttons', () => {
     render(<MonteSuaPizzaBuilder onAdd={() => {}} />)
-    expect(screen.getByText('6')).toBeInTheDocument()
-    expect(screen.getByText('8')).toBeInTheDocument()
-    expect(screen.getByText('10')).toBeInTheDocument()
-    expect(screen.getByText('12')).toBeInTheDocument()
-    expect(screen.getByText('16')).toBeInTheDocument()
+    const sizeGroup = screen.getByRole('radiogroup', { name: /Tamanho/i })
+    const buttons = within(sizeGroup).getAllByRole('radio')
+    expect(buttons).toHaveLength(5)
   })
 
   it('add button is disabled when no flavors are selected', () => {
@@ -28,17 +26,19 @@ describe('MonteSuaPizzaBuilder', () => {
     render(<MonteSuaPizzaBuilder onAdd={onAdd} />)
     fireEvent.click(screen.getByText('Calabresa'))
     fireEvent.click(screen.getByRole('button', { name: /Adicionar ao Carrinho/i }))
-    expect(onAdd).toHaveBeenCalledWith(
-      expect.objectContaining({
-        productId: 'custom-pizza',
-        name: 'Monte sua Pizza',
-        category: 'pizza',
-        flavors: expect.arrayContaining([
-          expect.objectContaining({ name: 'Calabresa' }),
-        ]),
-        quantity: 1,
-      })
-    )
+    const item = onAdd.mock.calls[0][0]
+    expect(item).toMatchObject({
+      productId: 'custom-pizza',
+      name: 'Monte sua Pizza',
+      category: 'pizza',
+      pizzaCategory: 'Tradicionais',
+      size: { slices: 6, price: 39.90 },
+      borda: null,
+      quantity: 1,
+      unitPrice: 39.90,
+    })
+    expect(item.flavors).toHaveLength(1)
+    expect(item.flavors[0].name).toBe('Calabresa')
   })
 
   it('shows limit message when trying to select more flavors than the size allows', () => {
@@ -46,18 +46,20 @@ describe('MonteSuaPizzaBuilder', () => {
     // Default size is 6 (max 1 flavor)
     fireEvent.click(screen.getByText('Calabresa'))
     fireEvent.click(screen.getByText('Margherita'))
-    expect(screen.getByText(/Limite de 1 sabores atingido/i)).toBeInTheDocument()
+    expect(screen.getByRole('status')).toHaveTextContent(/Limite de 1 sabores atingido/i)
   })
 
   it('trims selected flavors when size decreases below current flavor count', () => {
     const onAdd = vi.fn()
     render(<MonteSuaPizzaBuilder onAdd={onAdd} />)
+    const sizeGroup = screen.getByRole('radiogroup', { name: /Tamanho/i })
+    const sizeRadios = within(sizeGroup).getAllByRole('radio') // [6, 8, 10, 12, 16]
     // Switch to 8-slice (allows 2 flavors)
-    fireEvent.click(screen.getByText('8'))
+    fireEvent.click(sizeRadios[1])
     fireEvent.click(screen.getByText('Calabresa'))
     fireEvent.click(screen.getByText('Margherita'))
     // Switch back to 6-slice (max 1 flavor) — should trim to 1
-    fireEvent.click(screen.getByText('6'))
+    fireEvent.click(sizeRadios[0])
     fireEvent.click(screen.getByRole('button', { name: /Adicionar ao Carrinho/i }))
     const item = onAdd.mock.calls[0][0]
     expect(item.flavors).toHaveLength(1)
@@ -74,5 +76,18 @@ describe('MonteSuaPizzaBuilder', () => {
     expect(screen.getByText('Tradicionais')).toBeInTheDocument()
     expect(screen.getByText('Especiais')).toBeInTheDocument()
     expect(screen.getByText('Premium')).toBeInTheDocument()
+  })
+
+  it('price updates to most expensive category when a Premium flavor is selected', () => {
+    render(<MonteSuaPizzaBuilder onAdd={() => {}} />)
+    const sizeGroup = screen.getByRole('radiogroup', { name: /Tamanho/i })
+    const sizeRadios = within(sizeGroup).getAllByRole('radio') // [6, 8, 10, 12, 16]
+    // Switch to 8-slice size; default category is Tradicionais → price 49,90
+    fireEvent.click(sizeRadios[1])
+    expect(screen.getByRole('button', { name: /Adicionar ao Carrinho.*49,90/i })).toBeInTheDocument()
+    // Select a Premium flavor — "Costela com Polenguinho" is Premium
+    fireEvent.click(screen.getByText('Costela com Polenguinho'))
+    // Premium price for size 8 = R$89,90
+    expect(screen.getByRole('button', { name: /Adicionar ao Carrinho.*89,90/i })).toBeInTheDocument()
   })
 })

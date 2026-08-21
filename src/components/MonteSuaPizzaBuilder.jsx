@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import pizzasData from '../data/pizzas.json'
 import bordas from '../data/bordas.json'
 import { PIZZA_PRICES, PIZZA_SIZES } from '../data/prices'
@@ -7,6 +7,8 @@ const FLAVOR_LIMIT = { 6: 1, 8: 2, 10: 2, 12: 3, 16: 4 }
 
 const CATEGORIES = ['Tradicionais', 'Especiais', 'Premium', 'Doces', 'Doces Especiais']
 
+const CATEGORY_RANK = { Tradicionais: 0, Doces: 0, Especiais: 1, 'Doces Especiais': 1, Premium: 2 }
+
 const ALL_FLAVORS = pizzasData.flatMap((group) =>
   group.items
     .filter((item) => item.isActive)
@@ -14,6 +16,9 @@ const ALL_FLAVORS = pizzasData.flatMap((group) =>
 )
 
 export default function MonteSuaPizzaBuilder({ onAdd }) {
+  const limitTimerRef = useRef(null)
+  useEffect(() => () => clearTimeout(limitTimerRef.current), [])
+
   const [selectedSize, setSelectedSize] = useState(PIZZA_SIZES[0])
   const [selectedBorda, setSelectedBorda] = useState(null)
   const [selectedFlavors, setSelectedFlavors] = useState([])
@@ -25,9 +30,7 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
   const effectiveCategory =
     selectedFlavors.length > 0
       ? selectedFlavors.reduce((best, f) =>
-          PIZZA_PRICES[f.category][selectedSize] > PIZZA_PRICES[best.category][selectedSize]
-            ? f
-            : best
+          (CATEGORY_RANK[f.category] ?? 0) > (CATEGORY_RANK[best.category] ?? 0) ? f : best
         ).category
       : 'Tradicionais'
 
@@ -46,8 +49,9 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
       setSelectedFlavors((prev) => prev.filter((f) => f.id !== flavor.id))
     } else {
       if (selectedFlavors.length >= maxFlavors) {
+        clearTimeout(limitTimerRef.current)
         setShowLimitMessage(true)
-        setTimeout(() => setShowLimitMessage(false), 2000)
+        limitTimerRef.current = setTimeout(() => setShowLimitMessage(false), 2000)
         return
       }
       setSelectedFlavors((prev) => [
@@ -79,12 +83,14 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
         <p className="text-xs font-bold text-terracotta tracking-widest uppercase mb-2">
           Tamanho
         </p>
-        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        <div role="radiogroup" aria-label="Tamanho da pizza" className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
           {PIZZA_SIZES.map((size) => {
             const price = PIZZA_PRICES[effectiveCategory][size].toFixed(2).replace('.', ',')
             return (
               <button
                 key={size}
+                role="radio"
+                aria-checked={selectedSize === size}
                 onClick={() => handleSizeChange(size)}
                 className={`flex-shrink-0 flex flex-col items-center p-2 rounded-xl border min-w-[64px] text-xs transition-colors ${
                   selectedSize === size
@@ -106,8 +112,10 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
         <p className="text-xs font-bold text-terracotta tracking-widest uppercase mb-2">
           Borda (opcional)
         </p>
-        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+        <div role="radiogroup" aria-label="Borda" className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
           <button
+            role="radio"
+            aria-checked={selectedBorda === null}
             onClick={() => setSelectedBorda(null)}
             className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs border transition-colors ${
               selectedBorda === null
@@ -120,6 +128,8 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
           {bordas.map((borda) => (
             <button
               key={borda.id}
+              role="radio"
+              aria-checked={selectedBorda?.id === borda.id}
               onClick={() => setSelectedBorda(borda)}
               className={`flex-shrink-0 whitespace-nowrap px-3 py-1.5 rounded-full text-xs border transition-colors ${
                 selectedBorda?.id === borda.id
@@ -139,11 +149,9 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
           <p className="text-xs font-bold text-terracotta tracking-widest uppercase">
             Sabores (até {maxFlavors})
           </p>
-          {showLimitMessage && (
-            <span className="text-xs text-rose-gold font-medium">
-              Limite de {maxFlavors} sabores atingido
-            </span>
-          )}
+          <span role="status" aria-live="polite" className="text-xs text-rose-gold font-medium">
+            {showLimitMessage ? `Limite de ${maxFlavors} sabores atingido` : ''}
+          </span>
         </div>
         {CATEGORIES.map((cat) => {
           const flavors = ALL_FLAVORS.filter((f) => f.category === cat)
@@ -157,6 +165,7 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
                   return (
                     <button
                       key={flavor.id}
+                      aria-pressed={isSelected}
                       onClick={() => handleFlavorToggle(flavor)}
                       className={`flex items-start gap-3 p-3 rounded-xl text-left transition-colors ${
                         isSelected
@@ -202,10 +211,14 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
 
       {/* Observations */}
       <div>
-        <p className="text-xs font-bold text-terracotta tracking-widest uppercase mb-2">
+        <label
+          htmlFor="pizza-observations"
+          className="text-xs font-bold text-terracotta tracking-widest uppercase mb-2 block"
+        >
           Observações
-        </p>
+        </label>
         <textarea
+          id="pizza-observations"
           value={observations}
           onChange={(e) => setObservations(e.target.value)}
           placeholder="Ex: sem cebola, borda bem assada..."

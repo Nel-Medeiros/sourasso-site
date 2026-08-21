@@ -47,3 +47,39 @@ test('includes observations when present', () => {
   const decoded = decodeURIComponent(url.split('?text=')[1])
   expect(decoded).toContain('sem cebola')
 })
+
+test('includes Sabores line for custom pizzas with flavors', () => {
+  const items = [
+    {
+      name: 'Monte sua Pizza',
+      size: { slices: 8, price: 54.90 },
+      borda: { name: 'Cheddar', price: 15.00 },
+      flavors: [
+        { id: 'trad-05', name: 'Calabresa', category: 'Tradicionais' },
+        { id: 'esp-11', name: 'Mexicana', category: 'Especiais' },
+      ],
+      observations: '',
+      unitPrice: 69.90,
+      quantity: 1,
+    },
+  ]
+  const url = buildWhatsAppUrl(items, { name: 'João', address: 'Rua A', payment: 'PIX' })
+  const decoded = decodeURIComponent(url.split('?text=')[1])
+  expect(decoded).toContain('Sabores: Calabresa / Mexicana')
+})
+
+test('omits Sabores line for regular items without flavors', () => {
+  const items = [
+    {
+      name: 'Calabresa',
+      size: { slices: 8, price: 49.90 },
+      borda: null,
+      observations: '',
+      unitPrice: 49.90,
+      quantity: 1,
+    },
+  ]
+  const url = buildWhatsAppUrl(items, { name: 'João', address: 'Rua A', payment: 'PIX' })
+  const decoded = decodeURIComponent(url.split('?text=')[1])
+  expect(decoded).not.toContain('Sabores')
+})

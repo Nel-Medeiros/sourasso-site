@@ -5,6 +5,7 @@ import CategoryTabs from '../components/CategoryTabs'
 import PizzaSubTabs from '../components/PizzaSubTabs'
 import ProductCard from '../components/ProductCard'
 import ProductSheet from '../components/ProductSheet'
+import MonteSuaPizzaBuilder from '../components/MonteSuaPizzaBuilder'
 import useCartStore from '../store/cartStore'
 import pizzasData from '../data/pizzas.json'
 import porcoesData from '../data/porcoes.json'
@@ -62,18 +63,22 @@ export default function Home() {
         {activeCategory === 'Pizzas' && (
           <PizzaSubTabs active={activePizzaSub} onChange={setActivePizzaSub} />
         )}
-        <div className="grid grid-cols-2 gap-3 p-4">
-          {items.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              displayPrice={getDisplayPrice(product)}
-              emoji={CATEGORY_EMOJI[activeCategory]}
-              onSelect={handleSelect}
-              tallImage={activeCategory === 'Bebidas'}
-            />
-          ))}
-        </div>
+        {activeCategory === 'Pizzas' && activePizzaSub === 'Monte sua Pizza' ? (
+          <MonteSuaPizzaBuilder onAdd={addItem} />
+        ) : (
+          <div className="grid grid-cols-2 gap-3 p-4">
+            {items.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+                displayPrice={getDisplayPrice(product)}
+                emoji={CATEGORY_EMOJI[activeCategory]}
+                onSelect={handleSelect}
+                tallImage={activeCategory === 'Bebidas'}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {sheet && (

@@ -24,7 +24,6 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
   const [selectedSize, setSelectedSize] = useState(BUILDER_SIZES[0])
   const [selectedBorda, setSelectedBorda] = useState(null)
   const [selectedFlavors, setSelectedFlavors] = useState([])
-  const [observations, setObservations] = useState('')
   const [showLimitMessage, setShowLimitMessage] = useState(false)
 
   const maxFlavors = FLAVOR_LIMIT[selectedSize]
@@ -72,18 +71,17 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
       size: { slices: selectedSize, price: basePrice },
       borda: selectedBorda,
       flavors: selectedFlavors,
-      observations,
       unitPrice,
       quantity: 1,
     })
     setSelectedSize(BUILDER_SIZES[0])
     setSelectedBorda(null)
     setSelectedFlavors([])
-    setObservations('')
   }
 
   return (
-    <div className="flex flex-col gap-4 p-4 pb-6">
+    <>
+    <div className="flex flex-col gap-4 p-4 pb-28">
       {/* Size */}
       <div>
         <p className="text-xs font-bold text-terracotta tracking-widest uppercase mb-2">
@@ -215,25 +213,9 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
         })}
       </div>
 
-      {/* Observations */}
-      <div>
-        <label
-          htmlFor="pizza-observations"
-          className="text-xs font-bold text-terracotta tracking-widest uppercase mb-2 block"
-        >
-          Observações
-        </label>
-        <textarea
-          id="pizza-observations"
-          value={observations}
-          onChange={(e) => setObservations(e.target.value)}
-          placeholder="Ex: sem cebola, borda bem assada..."
-          rows={2}
-          className="w-full border border-cream rounded-lg p-3 text-sm text-dark-brown placeholder-gray-300 resize-none focus:outline-none focus:border-terracotta"
-        />
-      </div>
+    </div>
 
-      {/* Add button */}
+    <div className="fixed bottom-16 left-0 right-0 z-40 px-4 pb-3 pt-2 bg-cream border-t border-cream/60">
       <button
         onClick={handleAdd}
         disabled={selectedFlavors.length === 0}
@@ -242,5 +224,6 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
         Adicionar ao Carrinho — R${total}
       </button>
     </div>
+    </>
   )
 }

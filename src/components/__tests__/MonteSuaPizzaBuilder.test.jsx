@@ -3,11 +3,12 @@ import { describe, it, expect, vi } from 'vitest'
 import MonteSuaPizzaBuilder from '../MonteSuaPizzaBuilder'
 
 describe('MonteSuaPizzaBuilder', () => {
-  it('renders all five size buttons', () => {
+  it('renders four size buttons (6 slices excluded)', () => {
     render(<MonteSuaPizzaBuilder onAdd={() => {}} />)
     const sizeGroup = screen.getByRole('radiogroup', { name: /Tamanho/i })
     const buttons = within(sizeGroup).getAllByRole('radio')
-    expect(buttons).toHaveLength(5)
+    expect(buttons).toHaveLength(4)
+    expect(within(sizeGroup).queryByText('6')).not.toBeInTheDocument()
   })
 
   it('add button is disabled when no flavors are selected', () => {
@@ -32,10 +33,10 @@ describe('MonteSuaPizzaBuilder', () => {
       name: 'Monte sua Pizza',
       category: 'pizza',
       pizzaCategory: 'Tradicionais',
-      size: { slices: 6, price: 39.90 },
+      size: { slices: 8, price: 49.90 },
       borda: null,
       quantity: 1,
-      unitPrice: 39.90,
+      unitPrice: 49.90,
     })
     expect(item.flavors).toHaveLength(1)
     expect(item.flavors[0].name).toBe('Calabresa')
@@ -43,26 +44,28 @@ describe('MonteSuaPizzaBuilder', () => {
 
   it('shows limit message when trying to select more flavors than the size allows', () => {
     render(<MonteSuaPizzaBuilder onAdd={() => {}} />)
-    // Default size is 6 (max 1 flavor)
+    // Default size is 8 (max 2 flavors)
     fireEvent.click(screen.getByText('Calabresa'))
     fireEvent.click(screen.getByText('Margherita'))
-    expect(screen.getByRole('status')).toHaveTextContent(/Limite de 1 sabores atingido/i)
+    fireEvent.click(screen.getByText('Frango com Catupiry'))
+    expect(screen.getByRole('status')).toHaveTextContent(/Limite de 2 sabores atingido/i)
   })
 
   it('trims selected flavors when size decreases below current flavor count', () => {
     const onAdd = vi.fn()
     render(<MonteSuaPizzaBuilder onAdd={onAdd} />)
     const sizeGroup = screen.getByRole('radiogroup', { name: /Tamanho/i })
-    const sizeRadios = within(sizeGroup).getAllByRole('radio') // [6, 8, 10, 12, 16]
-    // Switch to 8-slice (allows 2 flavors)
-    fireEvent.click(sizeRadios[1])
+    const sizeRadios = within(sizeGroup).getAllByRole('radio') // [8, 10, 12, 16]
+    // Switch to 12-slice (allows 3 flavors)
+    fireEvent.click(sizeRadios[2])
     fireEvent.click(screen.getByText('Calabresa'))
     fireEvent.click(screen.getByText('Margherita'))
-    // Switch back to 6-slice (max 1 flavor) — should trim to 1
+    fireEvent.click(screen.getByText('Frango com Catupiry'))
+    // Switch back to 8-slice (max 2 flavors) — should trim to 2
     fireEvent.click(sizeRadios[0])
     fireEvent.click(screen.getByRole('button', { name: /Adicionar ao Carrinho/i }))
     const item = onAdd.mock.calls[0][0]
-    expect(item.flavors).toHaveLength(1)
+    expect(item.flavors).toHaveLength(2)
   })
 
   it('renders flavor names and descriptions', () => {
@@ -80,10 +83,7 @@ describe('MonteSuaPizzaBuilder', () => {
 
   it('price updates to most expensive category when a Premium flavor is selected', () => {
     render(<MonteSuaPizzaBuilder onAdd={() => {}} />)
-    const sizeGroup = screen.getByRole('radiogroup', { name: /Tamanho/i })
-    const sizeRadios = within(sizeGroup).getAllByRole('radio') // [6, 8, 10, 12, 16]
-    // Switch to 8-slice size; default category is Tradicionais → price 49,90
-    fireEvent.click(sizeRadios[1])
+    // Default size is 8; Tradicionais price = R$49,90
     expect(screen.getByRole('button', { name: /Adicionar ao Carrinho.*49,90/i })).toBeInTheDocument()
     // Select a Premium flavor — "Costela com Polenguinho" is Premium
     fireEvent.click(screen.getByText('Costela com Polenguinho'))

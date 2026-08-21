@@ -3,7 +3,9 @@ import pizzasData from '../data/pizzas.json'
 import bordas from '../data/bordas.json'
 import { PIZZA_PRICES, PIZZA_SIZES } from '../data/prices'
 
-const FLAVOR_LIMIT = { 6: 1, 8: 2, 10: 2, 12: 3, 16: 4 }
+const FLAVOR_LIMIT = { 8: 2, 10: 2, 12: 3, 16: 4 }
+
+const BUILDER_SIZES = PIZZA_SIZES.filter((s) => s !== 6)
 
 const CATEGORIES = ['Tradicionais', 'Especiais', 'Premium', 'Doces', 'Doces Especiais']
 
@@ -19,7 +21,7 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
   const limitTimerRef = useRef(null)
   useEffect(() => () => clearTimeout(limitTimerRef.current), [])
 
-  const [selectedSize, setSelectedSize] = useState(PIZZA_SIZES[0])
+  const [selectedSize, setSelectedSize] = useState(BUILDER_SIZES[0])
   const [selectedBorda, setSelectedBorda] = useState(null)
   const [selectedFlavors, setSelectedFlavors] = useState([])
   const [observations, setObservations] = useState('')
@@ -84,7 +86,7 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
           Tamanho
         </p>
         <div role="radiogroup" aria-label="Tamanho da pizza" className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-          {PIZZA_SIZES.map((size) => {
+          {BUILDER_SIZES.map((size) => {
             const price = PIZZA_PRICES[effectiveCategory][size].toFixed(2).replace('.', ',')
             return (
               <button

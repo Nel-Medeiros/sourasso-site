@@ -7,7 +7,7 @@ const FLAVOR_LIMIT = { 6: 1, 8: 2, 10: 2, 12: 3, 16: 4 }
 
 const CATEGORIES = ['Tradicionais', 'Especiais', 'Premium', 'Doces', 'Doces Especiais']
 
-const CATEGORY_RANK = { Tradicionais: 0, Doces: 0, Especiais: 1, 'Doces Especiais': 1, Premium: 2 }
+const CATEGORY_RANK = { Tradicionais: 0, Doces: 1, Especiais: 2, 'Doces Especiais': 3, Premium: 4 }
 
 const ALL_FLAVORS = pizzasData.flatMap((group) =>
   group.items

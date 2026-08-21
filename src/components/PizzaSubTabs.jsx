@@ -1,4 +1,4 @@
-const SUBCATEGORIES = ['Tradicionais', 'Especiais', 'Premium', 'Doces', 'Doces Especiais']
+const SUBCATEGORIES = ['Tradicionais', 'Especiais', 'Premium', 'Doces', 'Doces Especiais', 'Monte sua Pizza']
 
 export default function PizzaSubTabs({ active, onChange }) {
   return (

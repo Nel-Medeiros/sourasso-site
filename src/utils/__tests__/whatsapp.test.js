@@ -47,3 +47,75 @@ test('includes observations when present', () => {
   const decoded = decodeURIComponent(url.split('?text=')[1])
   expect(decoded).toContain('sem cebola')
 })
+
+test('includes Sabores line for custom pizzas with flavors', () => {
+  const items = [
+    {
+      name: 'Monte sua Pizza',
+      size: { slices: 8, price: 54.90 },
+      borda: { name: 'Cheddar', price: 15.00 },
+      flavors: [
+        { id: 'trad-05', name: 'Calabresa', category: 'Tradicionais' },
+        { id: 'esp-11', name: 'Mexicana', category: 'Especiais' },
+      ],
+      observations: '',
+      unitPrice: 69.90,
+      quantity: 1,
+    },
+  ]
+  const url = buildWhatsAppUrl(items, { name: 'João', address: 'Rua A', payment: 'PIX' })
+  const decoded = decodeURIComponent(url.split('?text=')[1])
+  expect(decoded).toContain('\n  Sabores: Calabresa / Mexicana')
+})
+
+test('omits Sabores line for regular items without flavors', () => {
+  const items = [
+    {
+      name: 'Calabresa',
+      size: { slices: 8, price: 49.90 },
+      borda: null,
+      observations: '',
+      unitPrice: 49.90,
+      quantity: 1,
+    },
+  ]
+  const url = buildWhatsAppUrl(items, { name: 'João', address: 'Rua A', payment: 'PIX' })
+  const decoded = decodeURIComponent(url.split('?text=')[1])
+  expect(decoded).not.toContain('Sabores')
+})
+
+test('omits Sabores line when flavors array is empty', () => {
+  const items = [
+    {
+      name: 'Monte sua Pizza',
+      size: { slices: 8, price: 49.90 },
+      borda: null,
+      flavors: [],
+      observations: '',
+      unitPrice: 49.90,
+      quantity: 1,
+    },
+  ]
+  const url = buildWhatsAppUrl(items, { name: 'João', address: 'Rua A', payment: 'PIX' })
+  const decoded = decodeURIComponent(url.split('?text=')[1])
+  expect(decoded).not.toContain('Sabores')
+})
+
+test('Sabores line appears before observations in the message', () => {
+  const items = [
+    {
+      name: 'Monte sua Pizza',
+      size: { slices: 8, price: 54.90 },
+      borda: null,
+      flavors: [{ id: 'trad-05', name: 'Calabresa', category: 'Tradicionais' }],
+      observations: 'sem cebola',
+      unitPrice: 54.90,
+      quantity: 1,
+    },
+  ]
+  const url = buildWhatsAppUrl(items, { name: 'João', address: 'Rua A', payment: 'PIX' })
+  const decoded = decodeURIComponent(url.split('?text=')[1])
+  const saboresIdx = decoded.indexOf('Sabores')
+  const obsIdx = decoded.indexOf('sem cebola')
+  expect(saboresIdx).toBeLessThan(obsIdx)
+})

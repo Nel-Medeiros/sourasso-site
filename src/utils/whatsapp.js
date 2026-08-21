@@ -1,13 +1,16 @@
 const WHATSAPP_NUMBER = '5541998344768'
 
-export function buildWhatsAppUrl(items, { name, address, payment }) {
+export function buildWhatsAppUrl(items, { name, address, payment, observations }) {
   const lines = items.map((item) => {
     const sizeDetail = item.size ? `(${item.size.slices} fatias)` : ''
     const bordaDetail = item.borda ? ` + ${item.borda.name}` : ''
     const detail = sizeDetail ? ` ${sizeDetail}${bordaDetail}` : ''
     const price = (item.unitPrice * item.quantity).toFixed(2).replace('.', ',')
     const obs = item.observations ? ` _(${item.observations})_` : ''
-    return `- ${item.name}${detail}: R$${price}${obs}`
+    const flavorDetail = item.flavors?.length
+      ? `\n  Sabores: ${item.flavors.map((f) => f.name).join(' / ')}`
+      : ''
+    return `- ${item.name}${detail}: R$${price}${flavorDetail}${obs}`
   })
 
   const total = items
@@ -26,6 +29,7 @@ export function buildWhatsAppUrl(items, { name, address, payment }) {
     '',
     `*Nome:* ${name}`,
     `*Endereço:* ${address}`,
+    ...(observations ? [`*Observações:* ${observations}`] : []),
   ].join('\n')
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`

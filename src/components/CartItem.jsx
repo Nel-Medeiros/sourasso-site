@@ -11,6 +11,9 @@ export default function CartItem({ item, onUpdateQty, onRemove }) {
         {sizeDetail && (
           <p className="text-gray-400 text-xs mt-0.5">{sizeDetail}</p>
         )}
+        {item.flavors?.length > 0 && (
+          <p className="text-gray-400 text-xs mt-0.5">{item.flavors.map((f) => f.name).join(' / ')}</p>
+        )}
         {item.observations && (
           <p className="text-gray-300 text-xs italic mt-0.5">"{item.observations}"</p>
         )}

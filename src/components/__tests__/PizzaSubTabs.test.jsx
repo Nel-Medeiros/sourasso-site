@@ -3,13 +3,14 @@ import { describe, it, expect, vi } from 'vitest'
 import PizzaSubTabs from '../PizzaSubTabs'
 
 describe('PizzaSubTabs', () => {
-  it('renders all five pizza subcategories', () => {
+  it('renders all six pizza subcategories', () => {
     render(<PizzaSubTabs active="Tradicionais" onChange={() => {}} />)
     expect(screen.getByText('Tradicionais')).toBeInTheDocument()
     expect(screen.getByText('Especiais')).toBeInTheDocument()
     expect(screen.getByText('Premium')).toBeInTheDocument()
     expect(screen.getByText('Doces')).toBeInTheDocument()
     expect(screen.getByText('Doces Especiais')).toBeInTheDocument()
+    expect(screen.getByText('Monte sua Pizza')).toBeInTheDocument()
   })
 
   it('calls onChange with subcategory name when clicked', () => {
@@ -17,5 +18,12 @@ describe('PizzaSubTabs', () => {
     render(<PizzaSubTabs active="Tradicionais" onChange={onChange} />)
     fireEvent.click(screen.getByText('Premium'))
     expect(onChange).toHaveBeenCalledWith('Premium')
+  })
+
+  it('calls onChange with "Monte sua Pizza" when clicked', () => {
+    const onChange = vi.fn()
+    render(<PizzaSubTabs active="Tradicionais" onChange={onChange} />)
+    fireEvent.click(screen.getByText('Monte sua Pizza'))
+    expect(onChange).toHaveBeenCalledWith('Monte sua Pizza')
   })
 })

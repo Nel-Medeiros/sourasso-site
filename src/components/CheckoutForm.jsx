@@ -8,6 +8,7 @@ export default function CheckoutForm({ items }) {
   const [name, setName] = useState('')
   const [address, setAddress] = useState('')
   const [payment, setPayment] = useState('PIX')
+  const [observations, setObservations] = useState('')
   const clear = useCartStore((s) => s.clear)
 
   const isValid = name.trim().length > 0 && address.trim().length > 0 && items.length > 0
@@ -17,6 +18,7 @@ export default function CheckoutForm({ items }) {
       name: name.trim(),
       address: address.trim(),
       payment,
+      observations: observations.trim(),
     })
     clear()
     window.open(url, '_blank')
@@ -67,6 +69,17 @@ export default function CheckoutForm({ items }) {
           </button>
         ))}
       </div>
+
+      <label className="block text-xs font-bold text-terracotta tracking-widest uppercase mb-1">
+        Observações
+      </label>
+      <textarea
+        value={observations}
+        onChange={(e) => setObservations(e.target.value)}
+        placeholder="Ex: sem cebola, entregar no portão..."
+        rows={2}
+        className="w-full border border-cream rounded-lg p-3 text-sm text-dark-brown placeholder-gray-300 resize-none focus:outline-none focus:border-terracotta mb-6"
+      />
 
       <button
         onClick={handleSubmit}

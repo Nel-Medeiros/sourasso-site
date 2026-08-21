@@ -10,7 +10,7 @@ export function buildWhatsAppUrl(items, { name, address, payment }) {
     const flavorDetail = item.flavors?.length
       ? `\n  Sabores: ${item.flavors.map((f) => f.name).join(' / ')}`
       : ''
-    return `- ${item.name}${detail}: R$${price}${obs}${flavorDetail}`
+    return `- ${item.name}${detail}: R$${price}${flavorDetail}${obs}`
   })
 
   const total = items

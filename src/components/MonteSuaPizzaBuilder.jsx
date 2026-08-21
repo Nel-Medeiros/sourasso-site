@@ -97,7 +97,7 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
                 className={`flex-shrink-0 flex flex-col items-center p-2 rounded-xl border min-w-[64px] text-xs transition-colors ${
                   selectedSize === size
                     ? 'bg-terracotta text-white border-terracotta'
-                    : 'bg-cream text-terracotta border-cream'
+                    : 'bg-white text-terracotta border-cream'
                 }`}
               >
                 <span className="font-bold text-sm">{size}</span>
@@ -122,7 +122,7 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
             className={`flex-shrink-0 px-3 py-1.5 rounded-full text-xs border transition-colors ${
               selectedBorda === null
                 ? 'bg-terracotta text-white border-terracotta'
-                : 'bg-cream text-terracotta border-cream'
+                : 'bg-white text-terracotta border-cream'
             }`}
           >
             Sem borda
@@ -136,7 +136,7 @@ export default function MonteSuaPizzaBuilder({ onAdd }) {
               className={`flex-shrink-0 whitespace-nowrap px-3 py-1.5 rounded-full text-xs border transition-colors ${
                 selectedBorda?.id === borda.id
                   ? 'bg-terracotta text-white border-terracotta'
-                  : 'bg-cream text-terracotta border-cream'
+                  : 'bg-white text-terracotta border-cream'
               }`}
             >
               {borda.name} +R${borda.price.toFixed(2).replace('.', ',')}

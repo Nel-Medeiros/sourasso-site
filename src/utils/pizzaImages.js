@@ -1,4 +1,5 @@
 const pcViewModules = import.meta.glob('../assets/*-pc-view.png', { eager: true })
+const desktopViewModules = import.meta.glob('../assets/*-desktop-view.png', { eager: true })
 const mobileViewModules = import.meta.glob('../assets/*-mobile-view.png', { eager: true })
 
 function buildImageMap(modules) {
@@ -10,7 +11,7 @@ function buildImageMap(modules) {
   )
 }
 
-const pcViewImages = buildImageMap(pcViewModules)
+const pcViewImages = { ...buildImageMap(pcViewModules), ...buildImageMap(desktopViewModules) }
 const mobileViewImages = buildImageMap(mobileViewModules)
 
 export function getPcViewImage(filename) {
